@@ -83,3 +83,7 @@ button {
 .stats-cointainers:hover{
     box-shadow: 0 0 30px lightblue;
 }
+h2, p{
+    text-align: center;
+}
+
