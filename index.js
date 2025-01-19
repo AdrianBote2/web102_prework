@@ -169,11 +169,14 @@ const filters = GAMES_JSON.filter((game) => {
 });
 
 const numOfUnfunded = filters.length;
-console.log(numOfUnfunded);
-// create a string that explains the number of unfunded games using the ternary operator
 
+// create a string that explains the number of unfunded games using the ternary operator
+let displayStr = (numOfUnfunded < 1) ? `A total of $${totalContribution.toLocaleString('en-US')} has been raised for ${totalGames} games. Currently, ${numOfUnfunded} game remains unfunded. We need your help to fund these amazing games!` : `A total of $${totalContribution.toLocaleString('en-US')} has been raised for ${totalGames} games. Currently, ${numOfUnfunded} games remain unfunded. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
+var display = document.createElement("div");
+display.innerHTML =`<p>${displayStr}</p>`;
+descriptionContainer.appendChild(display);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -188,7 +191,20 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+let [game1, game2, ...rest] = sortedGames;
+let {name:name1, description:d1, pledged:p1, goal:g1, backers:b1, img:img1} = game1;
+let {name:name2, description:d2, pledged:p2, goal:g2, backers:b2, img:img2} = game2;
+
+
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+var displays = document.createElement("div");
+displays.innerHTML = `<p>${name1}</p>
+<img src ="${img1}" class = "game-img">`;
+firstGameContainer.appendChild(displays);
 
 // do the same for the runner up item
+var displays2 = document.createElement("div");
+displays2.innerHTML = `<p>${name2}</p>
+<img src="${img2}" class = "game-img">`;
+secondGameContainer.appendChild(displays2);
