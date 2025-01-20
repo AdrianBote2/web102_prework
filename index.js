@@ -31,7 +31,7 @@ function addGamesToPage(games) {
     // loop over each item in the data
     for(let i = 0; i < games.length; i++){
         let game = games[i];
-
+        
         var gameCard = document.createElement("div");
 
         gameCard.classList.add("game-card");
@@ -42,8 +42,22 @@ function addGamesToPage(games) {
             <p>Description: ${game.description}</p>
             <p>Amount Pledged: ${game.pledged}</p>
             <p>Pledge Goal: ${game.goal}</p>
-            <p>Number of Contributors: ${game.backers}</p>`;
+            <p>Number of Contributors: ${game.backers}</p>
+            <div class = "GoalBar">
+                <div class = "GoalBar__fill"></div>
+                <span class="GoalBar__text">0%</span>
+            </div>`
+            ;
+        function updateProgressBar(GoalBar,game){
+            let value = (game.pledged/game.goal) * 100;
+            let values = Math.round(value);
+            GoalBar.querySelector(".GoalBar__fill").style.width = `${values}%`;
+            GoalBar.querySelector(".GoalBar__text").textContent = `${values}%`;
+        };
         
+        const goalBar = gameCard.querySelector(".GoalBar");
+        updateProgressBar(goalBar, game);
+
         gamesContainer.appendChild(gameCard);
     }
     

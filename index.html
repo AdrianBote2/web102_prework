@@ -6,20 +6,20 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body>
+  <body id ="homes">
     <!-- header row with logo -->
     <div class="header">
         <img id="tentacles" src="assets/tentacles.png">
         <h1 class="header-text">Sea Monster Crowdfunding</h1>
         <ul>
-            <li>Home</li>
-            <li>Stats</li>
-            <li>Our Games</li>
+            <li><a href="#homes">Home</a></li>
+            <li><a href="#stat">Stats</a></li>
+            <li><a href="#OurGames">Our Games</a></li>
         </ul>
     </div>
 
     <!-- background info about company -->
-    <h2>Welcome to Sea Monster!</h2>
+    <h2 id = "stat">Welcome to Sea Monster!</h2>
     <div id="description-container">
         <p class = "info">The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
     </div>
@@ -51,9 +51,9 @@
             <h3>🥈 Runner Up</h3>
         </div>
     </div>
-
+   
     <!-- list of games funded by Sea Monster -->
-    <h2>Our Games</h2>
+    <h2 id="OurGames" class="anchor">Our Games</h2>
     <p class = "info">Check out each of our games below!</p>
     <div id="button-container">
         <button id="unfunded-btn">Show Unfunded Only</button>
@@ -62,8 +62,7 @@
     </div>
     <div id="games-container">
 
-    </div>
-
+    
     <script type="module" src="index.js"></script>
   </body>
 </html>
